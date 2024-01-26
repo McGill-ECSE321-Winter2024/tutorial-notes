@@ -1,0 +1,53 @@
+=== Assessing Code Coverage using JaCoCo
+
+This tutorial covers the basics of settuig up JaCoCo as a gradle plugin to assess code coverage during tests.
+
+=== Event Registration Application Unit Test Code Coverage
+
+. To asses code coverage using the _Jacoco_ plugin for gradle, use the plugin ID `jacoco`. By adding it to the _build.gradle_ file, your file should look like this:
+```gradle
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+	id 'jacoco'
+}
+
+//...other configurations
+
+tasks.named('test') {
+	useJUnitPlatform()
+	testLogging {
+		exceptionFormat "full"
+		events "passed", "failed"
+ 	}
+	finalizedBy jacocoTestReport 
+}
+
+tasks.named('jacocoTestReport') {
+    dependsOn test // tests are required to run before generating the report
+}
+
+```
+
+. This new plugin gives us the `jacocoTestReport` task that can generate html reports. Try executing this task from the terminal and see the generated HTML files under _build/reports/jacoco/test/html/_!
+
+. If you wish, you can check enforce a certain threshold on the test cases with this Jacoco plugin. With the definition below, the `./gradlew jacocoTestCoverageVerification` task will fail if code coverage is below 60%. A good coverage to aspire to is 75% or greater. 100 % code coverage is nearly impossible to achieve. 
+```gradle
+
+tasks.named('test') {
+	//...other configurations
+	finalizedBy jacocoTestCoverageVerification
+}
+
+tasks.named('jacocoTestCoverageVerification') {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.6
+			}
+		}
+	}
+	dependsOn test // tests are required to run before checking code coverage.
+}
+```

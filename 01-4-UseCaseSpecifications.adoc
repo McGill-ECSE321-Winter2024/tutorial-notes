@@ -1,0 +1,71 @@
+=== Use Case Specifications
+
+A detailed use case specification describes a use case in greater detail.
+It should have a main success scenario, as well as alternate scenarios in case something unusal happens.
+Steps are numbered.
+Alternatives to step 1 are labelled 1a, 1b, and so on.
+Then the steps in the alternative scenario 1a are labelled 1a.1, 1a.2, and so on.
+An alternative scenario may end in success, it may end in failure, or the use case may continue at another step.
+
+====
+* ID: UC1
+* Title: Create in-person event
+* Description: An account holder schedules an in-person event.
+* Actor: An account holder
+* Main scenario:
+** 1) The user indicates that they want to create an in-person event.
+** 2) The system displays the in-person event creation form.
+** 3) The user enters an event name, date, start time, end time, and address.
+** 4) The system confirms that the event was created successfully.
+* Alternative scenarios:
+** 4a) The user entered an empty event name.
+*** 4a.1) The system informs the user that the event name is required.
+*** 4a.2) The use case continues at step 3.
+** 4b) The user selected a start datetime or an end datetime in the past.
+*** 4b.1) The system informs the user that events can only be scheduled for the future.
+*** 4b.2) The use case continues at step 3.
+** etc.
+====
+
+====
+* ID: UC2
+* Title: Search for events
+* Description: A user searches for multiple existing events.
+* Actor: Any user
+* Main scenario:
+** 1) The user indicates that they want to search for an event.
+** 2) The system displays the event search page.
+** 3) The user optionally specifies a full or partial event name or a date range or both.
+** 4) The system displays all events that satisfy the given conditions.
+* Alternative scenarios:
+** 4a) No events satisfy the conditions.
+*** 4a.1) The system warns the user that no such events exist.
+*** 4a.2) The use case ends in failure.
+====
+
+Use case specifications can refer back to other use cases if needed.
+
+====
+* ID: UC3
+* Title: Search for one event
+* Description: A user searches for a single existing event.
+* Actor: Any user
+* Main scenario:
+** 1) The user searches for multiple events (see UC2).
+** 2) The user selects one event from the list.
+====
+
+====
+* ID: UC4
+* Title: Register for event
+* Description: An account holder signs up for a specific event.
+* Actor: An account holder
+* Main scenario:
+** 1) The user searches for one event (see UC3).
+** 2) The user indicates that they wish to register for that event.
+** 3) The system confirms that the registration was successful.
+* Alternative scenarios:
+** 3b) The event has already ended.
+*** 3b.1) The system informs the user that they cannot register for events in the past.
+*** 3b.2) The use case continues at step 1.
+====

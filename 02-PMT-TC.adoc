@@ -1,0 +1,3 @@
+== Project Management
+
+include::02-1-GitProjMan.adoc[]

@@ -1,0 +1,11 @@
+== Requirements Engineering
+
+Before designing and implementing the event registration app, we must precisely specify the features and characteristics we expect from it.
+
+include::01-1-FunctionalRequirements.adoc[]
+
+include::01-2-NonFunctionalRequirements.adoc[]
+
+include::01-3-UseCaseDiagram.adoc[]
+
+include::01-4-UseCaseSpecifications.adoc[]

@@ -1,0 +1,41 @@
+=== Functional Requirements
+
+Functional requirements describe the functionality (i.e., features) we expect the app to have.
+It might be helpful to start with the high-level (i.e., user-level) requirements and then derive more specific (i.e., system-level) requirements from those.
+Here are examples of features that the event registration app should have.
+
+.User-level requirements
+====
+. The event registation application shall allow prospective users to create an account.
+. The event registration application shall allow users to create events.
+. The event registration application shall allow users to view events.
+. The event registration application shall allow users to register for events.
+====
+
+Notice how, even for user-level requirements, our requirements describe the system's behaviour, they do *not* place requirements on the user.
+
+Now, for each user-level requirement, we can derive one or more system-level requirements.
+
+.System-level requirements
+====
+. The event registation application shall allow prospective users to create an account.
+    .. The event registration application shall allow prospective users to create an account by specifying a name and a password.
+    .. The event registration application shall record the date of registration for all new users.
+. The event registration application shall allow users to create events.
+    .. The event registration application shall allow users to create an online event by specifying an event name, a date, a start time, an end time, and a URL.
+    .. The event registration application shall allow users to create an in-person event by specifying an event name, a date, a start time, an end time, and an address.
+. The event registration application shall allow users to view events.
+    .. The event registration application shall allow users to view a list containing a summary of every event. For each event, the summary shall include the event name and date.
+    .. The event registration application shall allow users to filter the list of events by name.
+    .. The event registration application shall allow users to filter the list of events by a range of dates.
+    .. The event registration shall allow users to view the full details of a specific event, including name, date, start and end times, and address or URL.
+====
+
+Note that not all system-level functional requirements need to be derived from user-level requirements.
+For example, we might have requirements describing processes that happen automatically and are not visible to end users.
+
+.System-level requirements not derived from a user-level requirement
+====
+. Every Sunday at 23:30 EST, the event registration application shall automatically delete all events whose end date has passed.
+. It shall be possible to update the event registration application at any time with no more than 15 minutes of downtime.
+====

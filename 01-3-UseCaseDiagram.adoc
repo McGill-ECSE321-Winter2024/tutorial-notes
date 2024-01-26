@@ -1,0 +1,5 @@
+=== Use Case Diagram
+
+We also want to describe the use cases for the event registration application using a use case diagram.
+
+image::UseCaseDiagram.png[]

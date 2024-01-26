@@ -1,0 +1,20 @@
+=== Non-Functional Requirements
+
+Non-functional requirements describe characteristics that we expect the application to have.
+For example, we might have expectations about the system's speed, the amount of memory or storage it uses, how user-friendly it is, etc.
+Here are some examples of non-functional requirements for the event registration app.
+
+.Speed
+====
+. When a user creates a valid event, the event registration application shall save the event and provide confirmation in more more than 2 seconds, 95% of the time.
+====
+
+.Memory consumption
+====
+. The event registration application shall not use more than 250 MB of memory on an end user's computer at any time.
+====
+
+.Usability
+====
+. The event registation application shall be sufficiently user-friendly that a new user with basic computer literacy shall be able to create their account in no more than 15 minutes.
+====
