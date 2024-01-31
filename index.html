@@ -455,6 +455,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_github_project_repository">2.1. GitHub Project Repository</a></li>
 </ul>
 </li>
+<li><a href="#_backend">3. Backend</a>
+<ul class="sectlevel2">
+<li><a href="#_setting_up_a_local_postgresql_database">3.1. Setting Up a Local PostgreSQL Database</a>
+<ul class="sectlevel3">
+<li><a href="#_installation">3.1.1. Installation</a></li>
+<li><a href="#_creating_a_database">3.1.2. Creating a Database</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -982,10 +992,138 @@ The status of issues can only be changed after they are created.
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_backend">3. Backend</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_setting_up_a_local_postgresql_database">3.1. Setting Up a Local PostgreSQL Database</h3>
+<div class="paragraph">
+<p>In this section, we will set up a local PostgreSQL database to store our application&#8217;s data.</p>
+</div>
+<div class="sect3">
+<h4 id="_installation">3.1.1. Installation</h4>
+<div class="paragraph">
+<p>Download the latest version of PostgreSQL from <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" class="bare">https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a>. Once the download is complete, run the installer. You can stick with the default values for most screens.</p>
+</div>
+<div class="paragraph">
+<p>The default installation directory should be fine.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-installation-directory.PNG" alt="PostgreSQL installation: installation directory" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Leave every component checked.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-components.png" alt="PostgreSQL installation: components" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>The default data directory should be fine.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-data-directory.png" alt="PostgreSQL installation: data directory" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Choose a password. <em>IMPORTANT: do not forget this password. You will need it later.</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-password.png" alt="PostgreSQL installation: password" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>The default port number should be fine. However, there&#8217;s no problem using a different port number in case a different app is using 5432 for some reason. Just remember your choice so that you know which port your app should connect to. Here is a <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">list of typical TCP/UDP ports</a> and their reservation status. <strong>Do not use a port that is reserved.</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-port.png" alt="PostgreSQL installation: port number" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>The default locale should be fine.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-locale.png" alt="PostgreSQL installation: locale" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>The summary might look something like this:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-summary.png" alt="PostgreSQL installation: summary" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>There&#8217;s no need for other tools, so you can skip the Stack Builder after the installation by unchecking the checkbox.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-setup-skip-stack-builder.png" alt="PostgreSQL installation: skip Stack Builder" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>Once PostgreSQL is installed, you should be able to connect to your local instance by running the command <code>psql --username postgres</code> and entering your password (I hope you haven&#8217;t forgotten it already).
+If you didn&#8217;t use the default port number, you can pass the additional command-line argument <code>--port</code> (e.g., <code>psql --username postgres --port 5433</code>).</p>
+</div>
+<div class="paragraph">
+<p>For the course project, each team member will need to set up a separate database instance on their own computer.
+To simplify configuring your app to connect to the database, each team member should use the same password and port number.
+If you initially chose different passwords, you can change your password by running <code>psql</code>, running the command <code>\password postgres</code>, and then entering the new password when prompted.
+You can similarly change the port number (e.g., by following <a href="https://www.commandprompt.com/education/how-to-change-default-port-in-postgresql/">these instructions</a>).
+In short:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In <code>psql</code>, run the command <code>show config_file;</code> (note the trailing semicolon) to locate the configuration file which stores the port number.</p>
+</li>
+<li>
+<p>Exit <code>psql</code>.</p>
+</li>
+<li>
+<p>Open the configuration file, locate the line <code>port = 5432</code> (where 5432 is replaced by your old port number), change the port number, and save the file.</p>
+</li>
+<li>
+<p>Restart the PostgreSQL service (or just restart your computer).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_a_database">3.1.2. Creating a Database</h4>
+<div class="paragraph">
+<p>One database management system (in this case, PostgreSQL) can host multiple databases.
+In <code>psql</code>, create a new database for the event registration app using the command</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>CREATE DATABASE event_registration;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check that the database exists by running the command <code>\l</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="figs/psql-create-database.png" alt="PostgreSQL create database">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-01-25 21:32:28 -0500
+Last updated 2024-01-31 13:26:40 -0500
 </div>
 </div>
 </body>

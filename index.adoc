@@ -17,6 +17,6 @@ include::01-Requirements.adoc[]
 
 include::02-PMT-TC.adoc[]
 
-//include::03-Backend.adoc[]
+include::03-Backend.adoc[]
 
 //include::04-Frontend.adoc[]
