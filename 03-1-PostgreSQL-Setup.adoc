@@ -39,6 +39,9 @@ image::psql-setup-skip-stack-builder.png[PostgreSQL installation: skip Stack Bui
 Once PostgreSQL is installed, you should be able to connect to your local instance by running the command `psql --username postgres` and entering your password (I hope you haven't forgotten it already).
 If you didn't use the default port number, you can pass the additional command-line argument `--port` (e.g., `psql --username postgres --port 5433`).
 
+NOTE: If you get an error with some variation of the message "command 'psql' not found," then you likely need to add `psql` to your PATH environment variable.
+It should be straightforward to find online instructions to do so on your operating system.
+
 For the course project, each team member will need to set up a separate database instance on their own computer.
 To simplify configuring your app to connect to the database, each team member should use the same password and port number.
 If you initially chose different passwords, you can change your password by running `psql`, running the command `\password postgres`, and then entering the new password when prompted.

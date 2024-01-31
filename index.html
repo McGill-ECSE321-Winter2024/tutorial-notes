@@ -1073,6 +1073,19 @@ The status of issues can only be changed after they are created.
 <p>Once PostgreSQL is installed, you should be able to connect to your local instance by running the command <code>psql --username postgres</code> and entering your password (I hope you haven&#8217;t forgotten it already).
 If you didn&#8217;t use the default port number, you can pass the additional command-line argument <code>--port</code> (e.g., <code>psql --username postgres --port 5433</code>).</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+If you get an error with some variation of the message "command 'psql' not found," then you likely need to add <code>psql</code> to your PATH environment variable.
+It should be straightforward to find online instructions to do so on your operating system.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>For the course project, each team member will need to set up a separate database instance on their own computer.
 To simplify configuring your app to connect to the database, each team member should use the same password and port number.
@@ -1123,7 +1136,7 @@ In <code>psql</code>, create a new database for the event registration app using
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-01-31 13:26:40 -0500
+Last updated 2024-01-31 13:34:01 -0500
 </div>
 </div>
 </body>
