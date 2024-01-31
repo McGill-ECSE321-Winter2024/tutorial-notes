@@ -2,7 +2,7 @@
 In this section, we will set up a local PostgreSQL database to store our application's data.
 
 ==== Installation
-Download PostgreSQL 14.5 from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads. Once the download is complete, run the installer. You can stick with the default values for most screens.
+Download the latest version of PostgreSQL from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads. Once the download is complete, run the installer. You can stick with the default values for most screens.
 
 The default installation directory should be fine.
 
@@ -52,7 +52,8 @@ In short:
 
 ==== Creating a Database
 
-A server can host multiple databases. Create a new database for the event registration app using the command
+One database management system (in this case, PostgreSQL) can host multiple databases.
+In `psql`, create a new database for the event registration app using the command
 ```
 CREATE DATABASE event_registration;
 ```
