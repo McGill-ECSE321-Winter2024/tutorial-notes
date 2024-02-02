@@ -2,7 +2,7 @@
 In this section, we will set up a local PostgreSQL database to store our application's data.
 
 ==== Installation
-Download PostgreSQL 14.5 from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads. Once the download is complete, run the installer. You can stick with the default values for most screens.
+Download the latest version of PostgreSQL from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads. Once the download is complete, run the installer. You can stick with the default values for most screens.
 
 The default installation directory should be fine.
 
@@ -36,11 +36,27 @@ There's no need for other tools, so you can skip the Stack Builder after the ins
 
 image::psql-setup-skip-stack-builder.png[PostgreSQL installation: skip Stack Builder,width=400]
 
+Once PostgreSQL is installed, you should be able to connect to your local instance by running the command `psql --username postgres` and entering your password (I hope you haven't forgotten it already).
+If you didn't use the default port number, you can pass the additional command-line argument `--port` (e.g., `psql --username postgres --port 5433`).
+
+NOTE: If you get an error with some variation of the message "command 'psql' not found," then you likely need to add `psql` to your PATH environment variable.
+It should be straightforward to find online instructions to do so on your operating system.
+
+For the course project, each team member will need to set up a separate database instance on their own computer.
+To simplify configuring your app to connect to the database, each team member should use the same password and port number.
+If you initially chose different passwords, you can change your password by running `psql`, running the command `\password postgres`, and then entering the new password when prompted.
+You can similarly change the port number (e.g., by following https://www.commandprompt.com/education/how-to-change-default-port-in-postgresql/[these instructions]).
+In short:
+
+. In `psql`, run the command `show config_file;` (note the trailing semicolon) to locate the configuration file which stores the port number.
+. Exit `psql`.
+. Open the configuration file, locate the line `port = 5432` (where 5432 is replaced by your old port number), change the port number, and save the file.
+. Restart the PostgreSQL service (or just restart your computer).
 
 ==== Creating a Database
-Once PostgreSQL is installed, you should be able to connect to your local instance by running the command `psql -U postgres` and entering your password (I hope you haven't forgotten it already).
 
-A server can host multiple databases. Create a new database for the event registration app using the command
+One database management system (in this case, PostgreSQL) can host multiple databases.
+In `psql`, create a new database for the event registration app using the command
 ```
 CREATE DATABASE event_registration;
 ```
