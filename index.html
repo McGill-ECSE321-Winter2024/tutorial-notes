@@ -463,6 +463,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_creating_a_database">3.1.2. Creating a Database</a></li>
 </ul>
 </li>
+<<<<<<< HEAD
 <li><a href="#_the_domain_model">3.2. The Domain Model</a>
 <ul class="sectlevel3">
 <li><a href="#_jpa_annotations">3.2.1. JPA Annotations</a></li>
@@ -486,6 +487,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_debugging_failing_tests">3.6.3. Debugging Failing Tests</a></li>
 </ul>
 </li>
+=======
+>>>>>>> 5c23d0226e7cb22ae9608b1e61f0397b2d3ae4d4
 </ul>
 </li>
 </ul>
@@ -1026,7 +1029,11 @@ The status of issues can only be changed after they are created.
 <div class="sect3">
 <h4 id="_installation">3.1.1. Installation</h4>
 <div class="paragraph">
+<<<<<<< HEAD
 <p>Download PostgreSQL 14.5 from <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" class="bare">https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a>. Once the download is complete, run the installer. You can stick with the default values for most screens.</p>
+=======
+<p>Download the latest version of PostgreSQL from <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" class="bare">https://www.enterprisedb.com/downloads/postgres-postgresql-downloads</a>. Once the download is complete, run the installer. You can stick with the default values for most screens.</p>
+>>>>>>> 5c23d0226e7cb22ae9608b1e61f0397b2d3ae4d4
 </div>
 <div class="paragraph">
 <p>The default installation directory should be fine.</p>
@@ -1092,14 +1099,62 @@ The status of issues can only be changed after they are created.
 <img src="figs/psql-setup-skip-stack-builder.png" alt="PostgreSQL installation: skip Stack Builder" width="400">
 </div>
 </div>
+<<<<<<< HEAD
+=======
+<div class="paragraph">
+<p>Once PostgreSQL is installed, you should be able to connect to your local instance by running the command <code>psql --username postgres</code> and entering your password (I hope you haven&#8217;t forgotten it already).
+If you didn&#8217;t use the default port number, you can pass the additional command-line argument <code>--port</code> (e.g., <code>psql --username postgres --port 5433</code>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+If you get an error with some variation of the message "command 'psql' not found," then you likely need to add <code>psql</code> to your PATH environment variable.
+It should be straightforward to find online instructions to do so on your operating system.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For the course project, each team member will need to set up a separate database instance on their own computer.
+To simplify configuring your app to connect to the database, each team member should use the same password and port number.
+If you initially chose different passwords, you can change your password by running <code>psql</code>, running the command <code>\password postgres</code>, and then entering the new password when prompted.
+You can similarly change the port number (e.g., by following <a href="https://www.commandprompt.com/education/how-to-change-default-port-in-postgresql/">these instructions</a>).
+In short:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In <code>psql</code>, run the command <code>show config_file;</code> (note the trailing semicolon) to locate the configuration file which stores the port number.</p>
+</li>
+<li>
+<p>Exit <code>psql</code>.</p>
+</li>
+<li>
+<p>Open the configuration file, locate the line <code>port = 5432</code> (where 5432 is replaced by your old port number), change the port number, and save the file.</p>
+</li>
+<li>
+<p>Restart the PostgreSQL service (or just restart your computer).</p>
+</li>
+</ol>
+</div>
+>>>>>>> 5c23d0226e7cb22ae9608b1e61f0397b2d3ae4d4
 </div>
 <div class="sect3">
 <h4 id="_creating_a_database">3.1.2. Creating a Database</h4>
 <div class="paragraph">
+<<<<<<< HEAD
 <p>Once PostgreSQL is installed, you should be able to connect to your local instance by running the command <code>psql -U postgres</code> and entering your password (I hope you haven&#8217;t forgotten it already).</p>
 </div>
 <div class="paragraph">
 <p>A server can host multiple databases. Create a new database for the event registration app using the command</p>
+=======
+<p>One database management system (in this case, PostgreSQL) can host multiple databases.
+In <code>psql</code>, create a new database for the event registration app using the command</p>
+>>>>>>> 5c23d0226e7cb22ae9608b1e61f0397b2d3ae4d4
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1116,6 +1171,7 @@ The status of issues can only be changed after they are created.
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="sect2">
 <h3 id="_the_domain_model">3.2. The Domain Model</h3>
 <div class="paragraph">
@@ -1901,12 +1957,18 @@ public class RegistrationRepositoryTests {
 </div>
 </div>
 </div>
+=======
+>>>>>>> 5c23d0226e7cb22ae9608b1e61f0397b2d3ae4d4
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
+<<<<<<< HEAD
 Last updated 2024-02-04 18:37:21 -0500
+=======
+Last updated 2024-01-31 13:34:01 -0500
+>>>>>>> 5c23d0226e7cb22ae9608b1e61f0397b2d3ae4d4
 </div>
 </div>
 </body>
