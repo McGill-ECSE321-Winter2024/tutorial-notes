@@ -504,6 +504,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_service_integration_testing_with_springs_testresttemplate">3.9.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></a></li>
 </ul>
 </li>
+<li><a href="#_writing_api_documentation">3.10. Writing API Documentation</a></li>
 </ul>
 </li>
 </ul>
@@ -2892,12 +2893,57 @@ class PersonDto {
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_writing_api_documentation">3.10. Writing API Documentation</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+If your API documentation is not simply a wiki page, you must clearly document in your project wiki how to access the API documentation.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+If you use springdoc, make sure you use the right version for your Spring Boot version (<a href="https://springdoc.org/" class="bare">https://springdoc.org/</a> for Spring Boot v3, <a href="https://springdoc.org/v1/" class="bare">https://springdoc.org/v1/</a> for Spring Boot v1 or v2). Your Spring Boot version is displayed when you start your app with <code>./gradlew bootRun</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are tools that can assist you in producing nice documentation for your API.
+For example, the springdoc-openapi library can generate an HTML page describing each endpoint and the request and response formats (see <a href="https://springdoc.org/#getting-started" class="bare">https://springdoc.org/#getting-started</a>).
+Note that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The dependency at <a href="https://springdoc.org/#getting-started" class="bare">https://springdoc.org/#getting-started</a> is specified using XML, as required by other build systems like <a href="https://maven.apache.org/">Maven</a>. In Gradle, you would instead add the dependency as <code>implementation groupId:artifactId:version</code>.</p>
+</li>
+<li>
+<p>The springdoc website mentions the context path of your app. This is "/" by default, so you should be able to access your documentation at <a href="http://localhost:8080/swagger-ui.html" class="bare">http://localhost:8080/swagger-ui.html</a> (assuming your backend is listening on port 8080).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>springdoc can also include information from Javadoc comments (see <a href="https://springdoc.org/#javadoc-support" class="bare">https://springdoc.org/#javadoc-support</a>).</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-02-26 16:02:34 -0500
+Last updated 2024-02-26 16:42:04 -0500
 </div>
 </div>
 </body>

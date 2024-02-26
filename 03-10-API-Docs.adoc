@@ -1,0 +1,14 @@
+=== Writing API Documentation
+
+IMPORTANT: If your API documentation is not simply a wiki page, you must clearly document in your project wiki how to access the API documentation.
+
+IMPORTANT: If you use springdoc, make sure you use the right version for your Spring Boot version (https://springdoc.org/ for Spring Boot v3, https://springdoc.org/v1/ for Spring Boot v1 or v2). Your Spring Boot version is displayed when you start your app with `./gradlew bootRun`.
+
+There are tools that can assist you in producing nice documentation for your API.
+For example, the springdoc-openapi library can generate an HTML page describing each endpoint and the request and response formats (see https://springdoc.org/#getting-started).
+Note that:
+
+- The dependency at https://springdoc.org/#getting-started is specified using XML, as required by other build systems like https://maven.apache.org/[Maven]. In Gradle, you would instead add the dependency as `implementation groupId:artifactId:version`.
+- The springdoc website mentions the context path of your app. This is "/" by default, so you should be able to access your documentation at http://localhost:8080/swagger-ui.html (assuming your backend is listening on port 8080).
+
+springdoc can also include information from Javadoc comments (see https://springdoc.org/#javadoc-support).
