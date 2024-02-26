@@ -2,7 +2,7 @@
 
 This tutorial covers the basics of settuig up JaCoCo as a gradle plugin to assess code coverage during tests.
 
-=== Event Registration Application Unit Test Code Coverage
+==== Event Registration Application Unit Test Code Coverage
 
 . To asses code coverage using the _Jacoco_ plugin for gradle, use the plugin ID `jacoco`. By adding it to the _build.gradle_ file, your file should look like this:
 ```gradle

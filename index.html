@@ -486,19 +486,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_debugging_failing_tests">3.6.3. Debugging Failing Tests</a></li>
 </ul>
 </li>
-<li><a href="#_assessing_code_coverage_using_jacoco">3.7. Assessing Code Coverage using JaCoCo</a></li>
-<li><a href="#_event_registration_application_unit_test_code_coverage">3.8. Event Registration Application Unit Test Code Coverage</a></li>
-<li><a href="#_creating_restful_web_services_in_spring">3.9. Creating RESTful Web Services in Spring</a>
+<li><a href="#_assessing_code_coverage_using_jacoco">3.7. Assessing Code Coverage using JaCoCo</a>
 <ul class="sectlevel3">
-<li><a href="#_implementing_service_methods">3.9.1. Implementing Service Methods</a></li>
-<li><a href="#_exposing_service_functionality_via_a_restful_api">3.9.2. Exposing Service Functionality via a RESTful API</a></li>
+<li><a href="#_event_registration_application_unit_test_code_coverage">3.7.1. Event Registration Application Unit Test Code Coverage</a></li>
 </ul>
 </li>
-<li><a href="#_testing_service_methods_in_backend">3.10. Testing Service Methods in Backend</a>
+<li><a href="#_creating_restful_web_services_in_spring">3.8. Creating RESTful Web Services in Spring</a>
 <ul class="sectlevel3">
-<li><a href="#_service_unit_testing_setup_with_mockito">3.10.1. Service Unit Testing Setup with Mockito</a></li>
-<li><a href="#_implementing_unit_tests_for_service_class">3.10.2. Implementing Unit Tests for Service Class</a></li>
-<li><a href="#_service_integration_testing_with_springs_testresttemplate">3.10.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></a></li>
+<li><a href="#_implementing_service_methods">3.8.1. Implementing Service Methods</a></li>
+<li><a href="#_exposing_service_functionality_via_a_restful_api">3.8.2. Exposing Service Functionality via a RESTful API</a></li>
+</ul>
+</li>
+<li><a href="#_testing_service_methods_in_backend">3.9. Testing Service Methods in Backend</a>
+<ul class="sectlevel3">
+<li><a href="#_service_unit_testing_setup_with_mockito">3.9.1. Service Unit Testing Setup with Mockito</a></li>
+<li><a href="#_implementing_unit_tests_for_service_class">3.9.2. Implementing Unit Tests for Service Class</a></li>
+<li><a href="#_service_integration_testing_with_springs_testresttemplate">3.9.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></a></li>
 </ul>
 </li>
 </ul>
@@ -1959,9 +1962,8 @@ public class RegistrationRepositoryTests {
 <div class="paragraph">
 <p>This tutorial covers the basics of settuig up JaCoCo as a gradle plugin to assess code coverage during tests.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_event_registration_application_unit_test_code_coverage">3.8. Event Registration Application Unit Test Code Coverage</h3>
+<div class="sect3">
+<h4 id="_event_registration_application_unit_test_code_coverage">3.7.1. Event Registration Application Unit Test Code Coverage</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2024,13 +2026,14 @@ tasks.named('jacocoTestCoverageVerification') {
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_creating_restful_web_services_in_spring">3.9. Creating RESTful Web Services in Spring</h3>
+<h3 id="_creating_restful_web_services_in_spring">3.8. Creating RESTful Web Services in Spring</h3>
 <div class="paragraph">
 <p>The following steps provide guidance on (1) implementing business logic that implements the required functionality (classes annotated with <code>@Service</code>) and (2) exposing them using a REST API in the context of the Event Registration Application (classes annotated with <code>@RestController</code>).</p>
 </div>
 <div class="sect3">
-<h4 id="_implementing_service_methods">3.9.1. Implementing Service Methods</h4>
+<h4 id="_implementing_service_methods">3.8.1. Implementing Service Methods</h4>
 <div class="paragraph">
 <p>We implement use-cases in <em>service classes</em> by using the DAOs for each data type of the domain model.</p>
 </div>
@@ -2154,7 +2157,7 @@ public class EventRegistrationService {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_exposing_service_functionality_via_a_restful_api">3.9.2. Exposing Service Functionality via a RESTful API</h4>
+<h4 id="_exposing_service_functionality_via_a_restful_api">3.8.2. Exposing Service Functionality via a RESTful API</h4>
 <div class="sect4">
 <h5 id="_building_a_restful_web_service_using_a_controller_and_data_transfer_objects">Building a RESTful Web Service Using a Controller and Data Transfer Objects</h5>
 <div class="olist arabic">
@@ -2475,9 +2478,9 @@ private List&lt;EventDto&gt; createEventDtosForPerson(Person p) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_testing_service_methods_in_backend">3.10. Testing Service Methods in Backend</h3>
+<h3 id="_testing_service_methods_in_backend">3.9. Testing Service Methods in Backend</h3>
 <div class="sect3">
-<h4 id="_service_unit_testing_setup_with_mockito">3.10.1. Service Unit Testing Setup with Mockito</h4>
+<h4 id="_service_unit_testing_setup_with_mockito">3.9.1. Service Unit Testing Setup with Mockito</h4>
 <div class="paragraph">
 <p>We need extra dependencies to support testing of the business methods in isolation.</p>
 </div>
@@ -2538,7 +2541,7 @@ public class TestEventRegistrationService {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_implementing_unit_tests_for_service_class">3.10.2. Implementing Unit Tests for Service Class</h4>
+<h4 id="_implementing_unit_tests_for_service_class">3.9.2. Implementing Unit Tests for Service Class</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2751,7 +2754,7 @@ public List&lt;Event&gt; getEventsAttendedByPerson(Person person) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_service_integration_testing_with_springs_testresttemplate">3.10.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></h4>
+<h4 id="_service_integration_testing_with_springs_testresttemplate">3.9.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></h4>
 <div class="paragraph">
 <p>As an alternative to the <code>curl</code> tool, you can test your application directly in your Spring project using the <code>TestRestTemplate</code>. This has a few benefits. For example, you can use built-in assertion methods to more precisely specify your test success conditions and you don&#8217;t need any extra steps to integrate these tests into your build system: running <code>./gradlew clean test</code> will automatically run the integration tests. It&#8217;s also nice to be able to see the code coverage for your integration tests, even if it&#8217;s not required for your project.</p>
 </div>
@@ -2894,7 +2897,7 @@ class PersonDto {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-02-25 20:59:38 -0500
+Last updated 2024-02-26 16:02:34 -0500
 </div>
 </div>
 </body>
