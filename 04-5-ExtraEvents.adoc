@@ -6,7 +6,7 @@
 
 // [line-through]#You need to provide the following functionality by extending the Vue.js component:#
 
-1. **List all events (name, eventDate, startTime, endTime)**
+. **List all events (name, eventDate, startTime, endTime)**
 ** Introduce an array **events** in the frontend data store
 +
 Update your _registration.js_: 
@@ -66,7 +66,7 @@ Update your _EventRegistration.vue_:
 ```
 
 
-1. **Create a new event (name, date, startTime, endTime)**
+. **Create a new event (name, date, startTime, endTime)**
 ** Introduce an object **newEvent** in the frontend data store with four properties
 (e.g. name, date, startTime, endTime).
 *** Set the initial values of these properties to somet value
@@ -120,7 +120,7 @@ Update _EventRegistration.vue_: add the following code to the event table
     <span v-if="errorEvent" style="color:red">Error: {{errorEvent}} </span>
 ```
 
-1. **Register a person to an event** (when a new event should occur in the
+. **Register a person to an event** (when a new event should occur in the
   list of events printed next to a person)
 * Provide a selection of people
 ** You need a corresponding data variable (e.g. **selectedPerson**)

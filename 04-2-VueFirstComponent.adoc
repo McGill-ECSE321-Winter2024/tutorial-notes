@@ -30,7 +30,7 @@ following initial content:
 ----
 
 . Create some static HTML content of the template part starting with a `<div>` element
-corresponding to your component. We
+corresponding to your component.
 +
 [source,xml]
 ----

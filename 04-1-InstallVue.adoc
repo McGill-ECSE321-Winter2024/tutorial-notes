@@ -80,7 +80,7 @@ $ npm install
 $ npm run dev
 ----
 
-. As a result A sample web page should appear at http://localhost:8080/
+. A sample web page should appear at http://localhost:8080/
 
 . You can stop this development server by pressing kbd:[Ctrl+C] in the shell
 

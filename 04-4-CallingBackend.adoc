@@ -6,7 +6,7 @@ by the Java Spring framework. Please refer to the section 3.6.2 where we enabled
 ==== Calling backend services in from Vue.js components
 We need to modify our frontend to make calls to backend services.
 
-1. Open **registration.js** and add the following content to the beginning:
+. Open **registration.js** and add the following content to the beginning:
 * Note that instead of hard-wired IP addresses and ports, details are given in
 a configuration file.
 +
@@ -24,7 +24,7 @@ var AXIOS = axios.create({
 })
 ----
 
-1. Now navigate to the **created** function, and replace existing content
+. Now navigate to the **created** function, and replace existing content
 with the following lines:
 +
 [source,javascript]
@@ -51,8 +51,7 @@ with the following lines:
   }
 ----
 
-
-1. Navigate to the **createPerson()** method and change its content as follows:
+. Navigate to the **createPerson()** method and change its content as follows:
 +
 [source,javascript]
 ----
@@ -72,7 +71,6 @@ createPerson: function (personName) {
     }
 ----
 
-
-1. Run the frontend application and check that
+. Run the frontend application and check that
 * New people can be added
 * They immediately appear in the people list.
