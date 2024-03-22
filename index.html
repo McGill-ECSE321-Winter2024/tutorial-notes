@@ -499,9 +499,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_testing_service_methods_in_backend">3.9. Testing Service Methods in Backend</a>
 <ul class="sectlevel3">
-<li><a href="#_service_unit_testing_setup_with_mockito">3.9.1. Service Unit Testing Setup with Mockito</a></li>
-<li><a href="#_implementing_unit_tests_for_service_class">3.9.2. Implementing Unit Tests for Service Class</a></li>
-<li><a href="#_service_integration_testing_with_springs_testresttemplate">3.9.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></a></li>
+<li><a href="#_implementing_unit_tests_for_service_class">3.9.1. Implementing Unit Tests for Service Class</a></li>
+<li><a href="#_service_integration_testing_with_springs_testresttemplate">3.9.2. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></a></li>
 </ul>
 </li>
 <li><a href="#_writing_api_documentation">3.10. Writing API Documentation</a></li>
@@ -2537,44 +2536,8 @@ private List&lt;EventDto&gt; createEventDtosForPerson(Person p) {
 </div>
 <div class="sect2">
 <h3 id="_testing_service_methods_in_backend">3.9. Testing Service Methods in Backend</h3>
-<div class="sect3">
-<h4 id="_service_unit_testing_setup_with_mockito">3.9.1. Service Unit Testing Setup with Mockito</h4>
-<div class="paragraph">
-<p>We need extra dependencies to support testing of the business methods in isolation.</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
-<li>
-<p>Add the following dependencies to the project:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-gradle" data-lang="gradle">testImplementation 'org.mockito:mockito-core:2.+'
-testImplementation 'org.mockito:mockito-junit-jupiter:2.18.3'
-
-testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.3.1'</code></pre>
-</div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Tip</div>
-</td>
-<td class="content">
-Finding configuration settings for your Gradle/Maven projects is very simple by searaching for them on MVNRepository: <a href="https://mvnrepository.com/" class="bare">https://mvnrepository.com/</a>
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>If you also would like to run your project from Eclipse, add an additional dependency:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-gradle" data-lang="gradle">testImplementation 'org.junit.platform:junit-platform-launcher:1.4.1'</code></pre>
-</div>
-</div>
-</li>
 <li>
 <p>Create a test class (in case you don&#8217;t already have one) <code>TestEventRegistrationService</code> in the corresponding package under <code>src/test/java</code>:</p>
 <div class="listingblock">
@@ -2597,9 +2560,8 @@ public class TestEventRegistrationService {
 </li>
 </ol>
 </div>
-</div>
 <div class="sect3">
-<h4 id="_implementing_unit_tests_for_service_class">3.9.2. Implementing Unit Tests for Service Class</h4>
+<h4 id="_implementing_unit_tests_for_service_class">3.9.1. Implementing Unit Tests for Service Class</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2812,7 +2774,7 @@ public List&lt;Event&gt; getEventsAttendedByPerson(Person person) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_service_integration_testing_with_springs_testresttemplate">3.9.3. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></h4>
+<h4 id="_service_integration_testing_with_springs_testresttemplate">3.9.2. Service Integration Testing with Spring&#8217;s <code>TestRestTemplate</code></h4>
 <div class="paragraph">
 <p>As an alternative to the <code>curl</code> tool, you can test your application directly in your Spring project using the <code>TestRestTemplate</code>. This has a few benefits. For example, you can use built-in assertion methods to more precisely specify your test success conditions and you don&#8217;t need any extra steps to integrate these tests into your build system: running <code>./gradlew clean test</code> will automatically run the integration tests. It&#8217;s also nice to be able to see the code coverage for your integration tests, even if it&#8217;s not required for your project.</p>
 </div>
@@ -3950,7 +3912,7 @@ the list of people.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-22 15:26:46 -0400
+Last updated 2024-03-22 17:52:09 -0400
 </div>
 </div>
 </body>

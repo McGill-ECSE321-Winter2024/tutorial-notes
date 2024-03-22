@@ -1,31 +1,5 @@
 === Testing Service Methods in Backend
 
-==== Service Unit Testing Setup with Mockito
-
-We need extra dependencies to support testing of the business methods in isolation.
-
-. Add the following dependencies to the project:
-+
-[source,gradle]
-----
-testImplementation 'org.mockito:mockito-core:2.+'
-testImplementation 'org.mockito:mockito-junit-jupiter:2.18.3'
-
-testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
-----
-+
-[TIP]
-Finding configuration settings for your Gradle/Maven projects is very simple by searaching for them on MVNRepository: https://mvnrepository.com/
-
-. If you also would like to run your project from Eclipse, add an additional dependency: 
-+
-[source,gradle]
-----
-testImplementation 'org.junit.platform:junit-platform-launcher:1.4.1'
-----
-
-
-
 . Create a test class (in case you don't already have one) `TestEventRegistrationService` in the corresponding package under `src/test/java`:
 +
 [source,java]
