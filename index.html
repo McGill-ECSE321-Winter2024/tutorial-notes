@@ -2208,7 +2208,20 @@ public class EventRegistrationService {
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>We first create a new package <code>ca.mcgill.ecse321.eventregistration.controller</code> in EventRegistration-Backend and then create <code>EventRegistrationRestController</code> class inside it. We add the annotation <code>@RestController</code> to the controller class so that HTTP requests can be dispacthed to <code>EventRegistrationRestController</code> class. In addition, we enabled the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource Sharing</a> for any domain using the <code>@CrossOrigin</code> annotation on the REST controller class.</p>
+<p>We first create a new package <code>ca.mcgill.ecse321.eventregistration.controller</code> in EventRegistration-Backend and then create <code>EventRegistrationRestController</code> class inside it. We add the annotation <code>@RestController</code> to the controller class so that HTTP requests can be dispacthed to <code>EventRegistrationRestController</code> class. In addition, we enable <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource Sharing</a> using the <code>@CrossOrigin</code> annotation on the REST controller class.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You can also use wildcards in the <code>@CrossOrigin</code> annotation, as in <code>@CrossOrigin(origin = "<strong>")</code>.
+This allows cross-origin requests from *any</strong> domain, which is less secure but possibly more convenient.
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">package ca.mcgill.ecse321.eventregistration.controller;
@@ -2216,7 +2229,7 @@ public class EventRegistrationService {
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8087")
 @RestController
 public class EventRegistrationRestController {
 
@@ -3016,10 +3029,10 @@ $ npm -v
 </div>
 </li>
 <li>
-<p>Install the command line interface (CLI) for Vue: <code>npm install -g @vue/cli</code></p>
+<p>Install the command line interface (CLI) for Vue: <code>npm install --global @vue/cli</code></p>
 </li>
 <li>
-<p>Install the init add-on for vue-cli: <code>npm install -g @vue/cli-init</code></p>
+<p>Install the init add-on for vue-cli: <code>npm install --global @vue/cli-init</code></p>
 </li>
 </ol>
 </div>
@@ -3060,8 +3073,8 @@ $ npm -v
   Runtime-only
 ? Install vue-router (Y/n): Y
 ? Use ESLint to lint your code (Y/n): n
-? Setup unit tests with Karma + Mocha (Y/n) Y
-? Setup e2e tests with Nightwatch (Y/n) Y
+? Setup unit tests with Karma + Mocha (Y/n) n
+? Setup e2e tests with Nightwatch (Y/n) n
 
 vue-cli · Generated "eventregistration-frontend".</code></pre>
 </div>
@@ -3102,14 +3115,13 @@ $ npm run dev</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install JQuery and Axios (we will use these dependencies for issuing REST API calls):</p>
+<p>Add Axios as a dependency. We will use Axios for issuing REST API calls.</p>
 </li>
 </ol>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">npm install --save jquery
-npm install --save axios</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">npm install --save axios@1.5</code></pre>
 </div>
 </div>
 </div>
@@ -3164,20 +3176,13 @@ in similar environment variables (<code>backendHost</code> and <code>backendPort
 </div>
 </li>
 <li>
-<p>Open <strong>./build/dev-server.js</strong>, and change the <code>uri</code> assignment as follows:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The original line of code can be commented or deleted.</p>
+<p>Open <strong>./build/dev-server.js</strong>, and change the <code>uri</code> assignment as follows. The original line of code can be commented or deleted.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-js" data-lang="js">//var uri = 'http://localhost:' + port
 var host = config.dev.host
 var uri = 'http://' + host + ':' + port</code></pre>
 </div>
-</div>
-</li>
-</ul>
 </div>
 </li>
 <li>
@@ -3432,7 +3437,7 @@ function EventDto (name, date, start, end) {
 <pre class="highlight"><code class="language-javascript" data-lang="javascript">methods: {
     createPerson: function (personName) {
       // Create a new person and add it to the list of people
-      var p = new PersonDto(personName)
+      const p = new PersonDto(personName)
       this.persons.push(p)
       // Reset the name field for new people
       this.newPerson = ''
@@ -3562,12 +3567,12 @@ a configuration file.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-javascript" data-lang="javascript">import axios from 'axios'
-var config = require('../../config')
+import config from '../../config'
 
-var frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
-var backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort
+const frontendUrl = 'http://' + config.dev.host + ':' + config.dev.port
+const backendUrl = 'http://' + config.dev.backendHost + ':' + config.dev.backendPort
 
-var AXIOS = axios.create({
+const AXIOS = axios.create({
   baseURL: backendUrl,
   headers: { 'Access-Control-Allow-Origin': frontendUrl }
 })</code></pre>
@@ -3618,7 +3623,7 @@ with the following lines:</p>
           this.newPerson = ''
         })
         .catch(e =&gt; {
-          var errorMsg = e.response.data.message
+          const errorMsg = e.response.data.message
           console.log(errorMsg)
           this.errorPerson = errorMsg
         })
@@ -3874,11 +3879,11 @@ the list of people.</p>
 <p>Implement the register method in <em>registration.js</em>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-javascript" data-lang="javascript">        registerEvent: function (personName, eventName) {
-      var indexEv = this.events.map(x =&gt; x.name).indexOf(eventName)
-      var indexPart = this.persons.map(x =&gt; x.name).indexOf(personName)
-      var person = this.persons[indexPart]
-      var event = this.events[indexEv]
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">    registerEvent: function (personName, eventName) {
+      const indexEv = this.events.map(x =&gt; x.name).indexOf(eventName)
+      const indexPart = this.persons.map(x =&gt; x.name).indexOf(personName)
+      const person = this.persons[indexPart]
+      const event = this.events[indexEv]
       AXIOS.post('/register', {},
         {params: {
           person: person.name,
@@ -3891,7 +3896,7 @@ the list of people.</p>
         this.errorRegistration = ''
       })
       .catch(e =&gt; {
-        var errorMsg = e
+        const errorMsg = e
         console.log(errorMsg)
         this.errorRegistration = errorMsg
       })
@@ -3945,7 +3950,7 @@ the list of people.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-03-12 19:10:31 -0400
+Last updated 2024-03-22 15:26:46 -0400
 </div>
 </div>
 </body>

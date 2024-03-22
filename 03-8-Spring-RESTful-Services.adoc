@@ -123,7 +123,12 @@ public class EventRegistrationService {
 
 ===== Building a RESTful Web Service Using a Controller and Data Transfer Objects
 
-. We first create a new package `ca.mcgill.ecse321.eventregistration.controller` in EventRegistration-Backend and then create `EventRegistrationRestController` class inside it. We add the annotation `@RestController` to the controller class so that HTTP requests can be dispacthed to `EventRegistrationRestController` class. In addition, we enabled the link:https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS[Cross-Origin Resource Sharing] for any domain using the `@CrossOrigin` annotation on the REST controller class.
+. We first create a new package `ca.mcgill.ecse321.eventregistration.controller` in EventRegistration-Backend and then create `EventRegistrationRestController` class inside it. We add the annotation `@RestController` to the controller class so that HTTP requests can be dispacthed to `EventRegistrationRestController` class. In addition, we enable link:https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS[Cross-Origin Resource Sharing] using the `@CrossOrigin` annotation on the REST controller class.
++
+[NOTE]
+You can also use wildcards in the `@CrossOrigin` annotation, as in `@CrossOrigin(origin = "*")`.
+This allows cross-origin requests from *any* domain, which is less secure but possibly more convenient.
+
 +
 [source,java]
 ----
@@ -132,7 +137,7 @@ package ca.mcgill.ecse321.eventregistration.controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:8087")
 @RestController
 public class EventRegistrationRestController {
 

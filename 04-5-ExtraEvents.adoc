@@ -164,11 +164,11 @@ The solution for the above bullet points (goes to _EventRegistration.vue_):
 * Implement the register method in _registration.js_:
 +
 ```javascript
-        registerEvent: function (personName, eventName) {
-      var indexEv = this.events.map(x => x.name).indexOf(eventName)
-      var indexPart = this.persons.map(x => x.name).indexOf(personName)
-      var person = this.persons[indexPart]
-      var event = this.events[indexEv]
+    registerEvent: function (personName, eventName) {
+      const indexEv = this.events.map(x => x.name).indexOf(eventName)
+      const indexPart = this.persons.map(x => x.name).indexOf(personName)
+      const person = this.persons[indexPart]
+      const event = this.events[indexEv]
       AXIOS.post('/register', {},
         {params: {
           person: person.name,
@@ -181,7 +181,7 @@ The solution for the above bullet points (goes to _EventRegistration.vue_):
         this.errorRegistration = ''
       })
       .catch(e => {
-        var errorMsg = e
+        const errorMsg = e
         console.log(errorMsg)
         this.errorRegistration = errorMsg
       })

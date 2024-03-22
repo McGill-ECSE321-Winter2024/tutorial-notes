@@ -61,7 +61,7 @@ created: function () {
 methods: {
     createPerson: function (personName) {
       // Create a new person and add it to the list of people
-      var p = new PersonDto(personName)
+      const p = new PersonDto(personName)
       this.persons.push(p)
       // Reset the name field for new people
       this.newPerson = ''
